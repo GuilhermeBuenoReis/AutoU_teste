@@ -1,48 +1,61 @@
-Analisador de Emails com IA - Case Prático AutoU
+Analisador de Emails com IA — Case Prático AutoU
 
-Este projeto é uma aplicação web simples desenvolvida como parte do processo seletivo da AutoU. A aplicação utiliza a API do Google Gemini para analisar o conteúdo de emails, classificá-los em categorias predefinidas e sugerir uma resposta apropriada.
+API e interface web para análise e classificação de emails, construída com Python, Flask e a API do Google Gemini. O projeto foi desenhado para ser uma solução simples e eficaz para automatizar a triagem de emails, com foco em uma experiência de usuário clara e uma implementação de backend limpa.
 ✨ Funcionalidades
 
-    Interface Web Simples: Uma página única para colar o texto do email e visualizar a análise.
+    Análise de Conteúdo por IA: Utiliza o modelo gemini-1.5-flash-latest para interpretar o teor de um email.
 
-    Classificação por IA: Utiliza o modelo gemini-1.5-flash-latest para classificar emails em:
+    Classificação Automática: Categoriza emails em Solicitação de Status, Envio de Arquivo ou Não Relevante.
 
-        Solicitação de Status
+    Geração de Resposta: A IA sugere um rascunho de resposta profissional e contextualmente apropriada.
 
-        Envio de Arquivo
+    Interface Web Reativa: Frontend simples com feedback visual de carregamento durante a análise.
 
-        Não Relevante
+    Configuração Segura: Gerenciamento de chaves de API através de variáveis de ambiente.
 
-    Sugestão de Resposta: A IA gera um rascunho de resposta profissional com base no conteúdo do email.
+🚀 Tecnologias Principais
 
-    Design Moderno: Interface com tema escuro e feedback de carregamento para uma melhor experiência do usuário.
+    Framework Backend: Flask
 
-🛠️ Tecnologias Utilizadas
-
-    Backend: Python 3, Flask
+    Linguagem: Python
 
     Inteligência Artificial: Google Gemini API
 
-    Frontend: HTML, CSS, JavaScript (vanilla)
-
     Servidor de Produção: Gunicorn
 
-    Gerenciamento de Dependências: Pip, Venv
+    Frontend: HTML, CSS, JavaScript (vanilla)
+
+    Gerenciamento de Dependências: Pip & Venv
 
     Variáveis de Ambiente: python-dotenv
 
-🚀 Como Executar Localmente
+📂 Estrutura do Projeto
 
-Siga as instruções abaixo para configurar e executar o projeto em seu ambiente local.
+A estrutura de pastas foi organizada para separar claramente as responsabilidades da aplicação (lógica, templates e arquivos estáticos).
+
+AutoU_teste/
+├─ static/           # Arquivos CSS e JS estáticos
+│  └─ style.css
+├─ templates/        # Templates HTML (renderizados pelo Flask)
+│  └─ index.html
+├─ venv/             # Ambiente virtual Python
+├─ .env              # Arquivo para variáveis de ambiente (chave de API)
+├─ .gitignore        # Arquivos e pastas a serem ignorados pelo Git
+├─ app.py            # Lógica principal da aplicação (servidor Flask)
+└─ requirements.txt  # Lista de dependências Python
+
+🏁 Começando
+
+Siga os passos abaixo para configurar e rodar o projeto localmente.
 Pré-requisitos
 
-    Python 3.10+
+    Python (v3.10 ou superior)
 
     Git
 
-    Uma chave de API do Google AI Studio
+    Uma chave de API do Google AI Studio.
 
-Passos para Instalação
+Instalação
 
     Clone o repositório:
 
@@ -50,41 +63,22 @@ Passos para Instalação
     cd AutoU_teste
 
     Crie e ative um ambiente virtual:
-    Isso isola as dependências do projeto.
 
-    # Criar o ambiente
+    # Criar
     python3 -m venv venv
-
-    # Ativar no Linux/macOS
+    # Ativar (Linux/macOS)
     source venv/bin/activate
 
-    # Ativar no Windows (PowerShell)
-    .\venv\Scripts\Activate.ps1
-
     Instale as dependências:
-    O arquivo requirements.txt contém todos os pacotes necessários.
 
     pip install -r requirements.txt
 
     Configure as variáveis de ambiente:
-    Crie um arquivo chamado .env na raiz do projeto. Adicione sua chave de API do Google nele.
-
-    .env
+    Crie o arquivo .env na raiz do projeto e adicione sua chave.
 
     GOOGLE_API_KEY="SUA_CHAVE_DE_API_DO_GOOGLE_VEM_AQUI"
 
-    Inicie o servidor Flask:
-    Agora, basta executar a aplicação.
+    Inicie o servidor de desenvolvimento:
 
     flask run
-    # Ou, alternativamente:
-    # python3 app.py
 
-    Acesse a aplicação:
-    Abra seu navegador e acesse o endereço: http://12f7.0.0.1:5000
-
-🌐 Deploy
-
-A aplicação foi implantada na plataforma Render e pode ser acessada através do seguinte link:
-
-https://autou-teste-35dt.onrender.com
