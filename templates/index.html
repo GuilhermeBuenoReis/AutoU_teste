@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Prático AutoU - Desenvolvimento</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Analisador de Email com IA</h1>
+
+    <form id="email-form" action="/analyze-email" method="POST">
+      <textarea name="email_content" rows="10" placeholder="Cole o texto do email aqui...">{{ email_text }}</textarea>
+      <button type="submit">Analisar email</button>
+    </form>
+
+    <div id="loading-spinner" class="spinner-container hidden">
+      <div class="spinner"></div>
+    </div>
+
+    {% if error %}
+    <div class="error">
+      <strong>Erro:</strong> {{ error }}
+    </div>
+    {% endif %}
+
+    {% if category and suggestion %}
+    <div class="results">
+      <h2>Resultados da Análise</h2>
+      <p><strong>Categoria:</strong> {{ category }}</p>
+      <h3>Sugestão de Resposta:</h3>
+      <pre>{{ suggestion }}</pre>
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    const form = document.getElementById('email-form');
+    const loader = document.getElementById('loading-spinner');
+    const submitButton = form.querySelector('button');
+
+    form.addEventListener('submit', function () {
+      loader.classList.remove('hidden');
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Analisando...';
+    });
+  </script>
+</body>
+
+</html>
