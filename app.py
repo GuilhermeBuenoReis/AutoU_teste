@@ -29,9 +29,11 @@ def analyze_email():
         model = genai.GenerativeModel('gemini-1.5-flash-latest')
 
         prompt = f"""
-            Analise o seguinte texto de um email e classifique-o em uma das categorias: 
-            'Solicitação de Status', 'Envio de Arquivo' ou 'Não Relevante'.
-            Depois, gere um rascunho de resposta profissional.
+            Analise o seguinte texto de um email e classifique-o em uma das seguintes categorias:
+            'Produtivo': Emails que requerem uma ação ou resposta específica (ex.: solicitações de suporte técnico, atualização sobre casos em aberto, dúvidas sobre o sistema).
+            'Improdutivo': Mensagens que não requerem ação, como spam, notificações automáticas ou conversas informais.
+            
+            Depois, gere um rascunho de resposta profissional, caso seja um email produtivo. Se for improdutivo, a sugestão pode ser "Nenhuma ação necessária.".
 
             Sua resposta DEVE ser um objeto JSON válido, com as chaves "categoria" e "sugestao_resposta".
 
